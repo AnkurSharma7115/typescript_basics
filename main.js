@@ -74,3 +74,12 @@ add(5, 10);
 // add(5, "rose");
 //optional parameters
 add(5);
+function fullName(person) {
+    console.log(person.firstName + " " + person.lastName);
+}
+var p = {
+    firstName: "Bruce",
+    lastName: "Waynne"
+};
+fullName(p);
+//class : Access Modifiers

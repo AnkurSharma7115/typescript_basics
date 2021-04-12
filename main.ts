@@ -100,3 +100,22 @@ add(5, 10);
 
 //optional parameters
 add(5);
+
+//interfaces : Object as "type"
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function fullName(person: Person) {
+    console.log(`${person.firstName} ${person.lastName}`);
+}
+
+let p = {
+    firstName: "Bruce",
+    lastName: "Waynne",
+};
+
+fullName(p);
+
+//class : Access Modifiers
