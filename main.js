@@ -40,6 +40,11 @@ myVar(); //noError - calling as a function
 myVar.toUpperCase(); //noError - calling method
 //"unknown" type of variable (replaceing "any")
 var myValue = 20;
-console.log(myValue.name);
-myValue();
-myValue.toUpperCase();
+//User Define Type-Guard for "unknown" type
+function hasName(obj) {
+    return !!obj && typeof obj === "object" && "name" in obj;
+}
+if (hasName(myValue)) {
+    console.log(myValue.name);
+}
+myValue.toUpperCase(); //no Error

@@ -59,7 +59,12 @@ myVar.toUpperCase(); //noError - calling method
 //"unknown" type of variable (replaceing "any")
 
 let myValue: unknown = 20;
+//User Define Type-Guard for "unknown" type
+function hasName(obj: any): obj is { name: string } {
+    return !!obj && typeof obj === "object" && "name" in obj;
+}
 
-console.log(myValue.name);
-myValue();
-myValue.toUpperCase();
+if (hasName(myValue)) {
+    console.log(myValue.name);
+}
+(myValue as string).toUpperCase(); //no Error
