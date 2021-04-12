@@ -38,3 +38,8 @@ var myVar = 20;
 console.log(myVar.name); //no Error - Accessing property
 myVar(); //noError - calling as a function
 myVar.toUpperCase(); //noError - calling method
+//"unknown" type of variable (replaceing "any")
+var myValue = 20;
+console.log(myValue.name);
+myValue();
+myValue.toUpperCase();
