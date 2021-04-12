@@ -118,31 +118,43 @@ let p = {
 
 fullName(p);
 
-//class : Access Modifiers
+//class : Access Modifiers(to limit the visibility scope of properties )
 
 class Employee {
-    empName: string;
+    public empName: string;
+    private empAge: number;
+    protected empAgree: boolean;
 
-    constructor(name: string) {
+    constructor(name: string, age: number, agree: boolean) {
         this.empName = name;
     }
 
     greet() {
-        console.log(`Good Mornning ${this.empName}`);
+        //all variable is accesible inside class
+        console.log(
+            `Good Mornning ${this.empName} ${this.empAge} ${this.empAgree}`
+        );
     }
 }
 
-let emp1 = new Employee("John");
+let emp1 = new Employee("John", 29, true);
 console.log(emp1.empName);
+console.log(emp1.empAge); //Error - private
+console.log(emp1.empAgree); //Error - protected
 emp1.greet();
 
 class Manager extends Employee {
+    //Derived Class
     constructor(managerName: string) {
         super(managerName);
     }
 
     delegateWork() {
-        console.log("Manager Delegating task");
+        //Error - private property not accessible in Derived class or anywhere outside class
+
+        console.log(
+            `Manager Delegated Tasks ${this.empName} ${this.empAge} ${this.empAgree}`
+        );
     }
 }
 
@@ -150,3 +162,5 @@ let m1 = new Manager("Steve");
 m1.delegateWork();
 m1.greet();
 console.log(m1.empName);
+console.log(emp1.empAge); //Error - private
+console.log(emp1.empAgree); //Error - protected accessible inside derived but not outside derived

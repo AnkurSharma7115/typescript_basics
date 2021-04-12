@@ -97,26 +97,31 @@ var p = {
     lastName: "Waynne"
 };
 fullName(p);
-//class : Access Modifiers
+//class : Access Modifiers(to limit the visibility scope of properties )
 var Employee = /** @class */ (function () {
-    function Employee(name) {
+    function Employee(name, age, agree) {
         this.empName = name;
     }
     Employee.prototype.greet = function () {
-        console.log("Good Mornning " + this.empName);
+        //all variable is accesible inside class
+        console.log("Good Mornning " + this.empName + " " + this.empAge + " " + this.empAgree);
     };
     return Employee;
 }());
-var emp1 = new Employee("John");
+var emp1 = new Employee("John", 29, true);
 console.log(emp1.empName);
+console.log(emp1.empAge); //Error - private
+console.log(emp1.empAgree); //Error - protected
 emp1.greet();
 var Manager = /** @class */ (function (_super) {
     __extends(Manager, _super);
+    //Derived Class
     function Manager(managerName) {
         return _super.call(this, managerName) || this;
     }
     Manager.prototype.delegateWork = function () {
-        console.log("Manager Delegating task");
+        //Error - private property not accessible in Derived class or anywhere outside class
+        console.log("Manager Delegated Tasks " + this.empName + " " + this.empAge + " " + this.empAgree);
     };
     return Manager;
 }(Employee));
@@ -124,3 +129,5 @@ var m1 = new Manager("Steve");
 m1.delegateWork();
 m1.greet();
 console.log(m1.empName);
+console.log(emp1.empAge); //Error - private
+console.log(emp1.empAgree); //Error - protected accessible inside derived but not outside derived
