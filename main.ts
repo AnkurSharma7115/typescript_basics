@@ -68,3 +68,13 @@ if (hasName(myValue)) {
     console.log(myValue.name);
 }
 (myValue as string).toUpperCase(); //no Error
+
+// "Type Inference" with type checking
+
+let a; //not working because no variable initialization
+a = 10;
+a = true; //no Error
+
+let b = 20; //working
+b = true;
+b = "amit"; //Error
