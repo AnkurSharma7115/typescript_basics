@@ -62,3 +62,10 @@ multiType = true; //only supports the defined types and inteliisece support of I
 var anyType; //not useful most of time
 anyType = 20;
 anyType = true;
+//Functions in TS
+function add(a, b) {
+    return a + b;
+}
+add(5, 10);
+//static type checking in Functions in TS
+add(5, "rose");

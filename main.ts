@@ -88,3 +88,12 @@ multiType = true; //only supports the defined types and inteliisece support of I
 let anyType: any; //not useful most of time
 anyType = 20;
 anyType = true;
+//Functions in TS
+
+function add(a: number, b: number) {
+    return a + b;
+}
+
+add(5, 10);
+//static type checking in Functions in TS
+add(5, "rose");
