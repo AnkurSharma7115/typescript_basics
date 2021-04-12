@@ -119,3 +119,34 @@ let p = {
 fullName(p);
 
 //class : Access Modifiers
+
+class Employee {
+    empName: string;
+
+    constructor(name: string) {
+        this.empName = name;
+    }
+
+    greet() {
+        console.log(`Good Mornning ${this.empName}`);
+    }
+}
+
+let emp1 = new Employee("John");
+console.log(emp1.empName);
+emp1.greet();
+
+class Manager extends Employee {
+    constructor(managerName: string) {
+        super(managerName);
+    }
+
+    delegateWork() {
+        console.log("Manager Delegating task");
+    }
+}
+
+let m1 = new Manager("Steve");
+m1.delegateWork();
+m1.greet();
+console.log(m1.empName);
