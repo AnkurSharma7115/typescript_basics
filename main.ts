@@ -69,12 +69,22 @@ if (hasName(myValue)) {
 }
 (myValue as string).toUpperCase(); //no Error
 
-// "Type Inference" with type checking
+//  1 . "Type Inference" with type checking
 
 let a; //not working because no variable initialization
 a = 10;
 a = true; //no Error
 
 let b = 20; //working
-b = true;
-b = "amit"; //Error
+// b = true;
+// b = "amit"; //Error
+
+// 2 . TS ability to specify the union of types of same variable.
+
+let multiType: number | boolean; //usecase example in calling APis
+multiType = 20;
+multiType = true; //only supports the defined types and inteliisece support of IDE
+
+let anyType: any; //not useful most of time
+anyType = 20;
+anyType = true;

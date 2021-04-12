@@ -48,10 +48,17 @@ if (hasName(myValue)) {
     console.log(myValue.name);
 }
 myValue.toUpperCase(); //no Error
-// "Type Inference" with type checking
+//  1 . "Type Inference" with type checking
 var a; //not working because no variable initialization
 a = 10;
 a = true; //no Error
 var b = 20; //working
-b = true;
-b = "amit"; //Error
+// b = true;
+// b = "amit"; //Error
+// 2 . TS ability to specify the union of types of same variable.
+var multiType; //usecase example in calling APis
+multiType = 20;
+multiType = true; //only supports the defined types and inteliisece support of IDE
+var anyType; //not useful most of time
+anyType = 20;
+anyType = true;
