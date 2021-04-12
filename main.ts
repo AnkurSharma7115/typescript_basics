@@ -90,10 +90,13 @@ anyType = 20;
 anyType = true;
 //Functions in TS
 
-function add(a: number, b: number) {
-    return a + b;
+function add(a: number, b?: number): number {
+    if (num2) return num1 + num2;
+    else return num1;
 }
-
 add(5, 10);
-//static type checking in Functions in TS
-add(5, "rose");
+// //static type checking in Functions in TS
+// add(5, "rose");
+
+//optional parameters
+add(5);

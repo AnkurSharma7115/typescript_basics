@@ -64,8 +64,13 @@ anyType = 20;
 anyType = true;
 //Functions in TS
 function add(a, b) {
-    return a + b;
+    if (num2)
+        return num1 + num2;
+    else
+        return num1;
 }
 add(5, 10);
-//static type checking in Functions in TS
-add(5, "rose");
+// //static type checking in Functions in TS
+// add(5, "rose");
+//optional parameters
+add(5);
